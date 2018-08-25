@@ -1,0 +1,33 @@
+service: fp-sls-aws-dotnet-fsharp
+
+provider:
+  name: aws
+  stage: dev
+  region: eu-central-1
+  profile: private
+
+  runtime: dotnetcore2.0
+  memorySize: 256
+  timeout: 20
+  versionFunctions: false
+
+package:
+  artifact: bin/release/netcoreapp2.0/deploy-package.zip
+
+functions:
+  echo:
+    handler: FpSlsDotNetFsharp::DotNetFSharp.Handlers::echo
+    events:
+      - http:
+          path: echo
+          method: post
+  sieve:
+    handler: FpSlsDotNetFsharp::DotNetFSharp.Handlers::sieve
+    events:
+      - http:
+          path: sieve
+          method: post
+          request:
+            parameters:
+              querystrings:
+                number: true

@@ -1,0 +1,13 @@
+# Build artifacts:
+*.class
+*.log
+
+# SBT specific:
+.cache
+.history
+.lib/
+dist/*
+lib_managed/
+src_managed/
+project/boot/
+project/plugins/project/

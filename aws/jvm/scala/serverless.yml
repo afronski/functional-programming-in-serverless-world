@@ -1,0 +1,33 @@
+service: fp-sls-aws-jvm-scala
+
+provider:
+  name: aws
+  stage: dev
+  region: eu-central-1
+  profile: private
+
+  runtime: java8
+  memorySize: 256
+  timeout: 20
+  versionFunctions: false
+
+package:
+  artifact: target/scala-2.12/fp_sls_aws_jvm_scala.jar
+
+functions:
+  echo:
+    handler: fp_sls_aws_jvm_scala.EchoHandler
+    events:
+      - http:
+          path: echo
+          method: post
+  sieve:
+    handler: fp_sls_aws_jvm_scala.SieveHandler
+    events:
+      - http:
+          path: sieve
+          method: post
+          request:
+            parameters:
+              querystrings:
+                number: true

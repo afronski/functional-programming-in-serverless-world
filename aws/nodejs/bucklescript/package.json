@@ -1,0 +1,8 @@
+{
+  "name": "fp-sls-aws-nodejs-bucklescript",
+  "version": "1.0.0",
+  "dependencies": {
+    "bs-platform": "~2.2.1"
+  },
+  "devDependencies": {}
+}

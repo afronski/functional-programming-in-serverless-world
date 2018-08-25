@@ -1,0 +1,5 @@
+# Repository of R packages:
+.r-stuff/
+
+# Generated documents:
+*.pdf

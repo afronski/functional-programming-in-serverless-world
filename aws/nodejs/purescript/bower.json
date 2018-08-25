@@ -1,0 +1,24 @@
+{
+  "name": "fp-sls-aws-nodejs-purescript",
+  "version": "1.0.0",
+  "moduleType": [
+    "node"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "output"
+  ],
+  "dependencies": {
+    "purescript-console": "~3.0.0",
+    "purescript-foreign": "~4.0.1",
+    "purescript-arrays": "~4.1.2",
+    "purescript-lists": "~4.12.0",
+    "purescript-prelude": "~3.1.0",
+    "purescript-eff": "~3.1.0"
+  },
+  "devDependencies": {
+    "purescript-psci-support": "~3.0.0"
+  }
+}

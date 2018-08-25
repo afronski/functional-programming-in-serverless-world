@@ -1,0 +1,6 @@
+{
+  "name": "fp-sls-aws-nodejs-bucklescript",
+  "sources": {
+    "dir": "src"
+  }
+}

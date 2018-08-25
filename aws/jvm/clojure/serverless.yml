@@ -1,0 +1,33 @@
+service: fp-sls-aws-jvm-clj
+
+provider:
+  name: aws
+  stage: dev
+  region: eu-central-1
+  profile: private
+
+  runtime: java8
+  memorySize: 256
+  timeout: 20
+  versionFunctions: false
+
+package:
+  artifact: target/fp_sls_clj-1.0.0-standalone.jar
+
+functions:
+  echo:
+    handler: fp_sls_clj.main::echo
+    events:
+      - http:
+          path: echo
+          method: post
+  sieve:
+    handler: fp_sls_clj.main::sieve
+    events:
+      - http:
+          path: sieve
+          method: post
+          request:
+            parameters:
+              querystrings:
+                number: true

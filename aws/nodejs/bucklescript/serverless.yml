@@ -1,0 +1,42 @@
+service: fp-sls-aws-nodejs-bucklescript
+
+provider:
+  name: aws
+  stage: dev
+  region: eu-central-1
+  profile: private
+
+  runtime: nodejs6.10
+  memorySize: 256
+  timeout: 20
+  versionFunctions: false
+
+package:
+  exclude:
+    - lib/bs/**
+    - node_modules/bs-platform/**
+    - .merlin
+    - "*.json"
+    - "*.sh"
+    - src/**
+  include:
+    - node_modules/bs-platform/lib/js/**
+    - lib/js/**
+
+functions:
+  echo:
+    handler: lib/js/src/index.echo_handler
+    events:
+      - http:
+          path: echo
+          method: post
+  sieve:
+    handler: lib/js/src/index.sieve_handler
+    events:
+      - http:
+          path: sieve
+          method: post
+          request:
+            parameters:
+              querystrings:
+                number: true

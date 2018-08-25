@@ -1,0 +1,40 @@
+service: fp-sls-aws-shims-haskell
+
+provider:
+  name: aws
+  stage: dev
+  region: eu-central-1
+  profile: private
+
+  runtime: nodejs6.10
+  memorySize: 256
+  timeout: 20
+  versionFunctions: false
+
+package:
+  exclude:
+    - "*.hs"
+    - "*.hi"
+    - "*.o"
+    - "*.sh"
+  include:
+    - haskell-handler
+    - index.js
+
+functions:
+  echo:
+    handler: index.handler
+    events:
+      - http:
+          path: echo
+          method: post
+  sieve:
+    handler: index.handler
+    events:
+      - http:
+          path: sieve
+          method: post
+          request:
+            parameters:
+              querystrings:
+                number: true

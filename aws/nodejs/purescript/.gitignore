@@ -1,0 +1,9 @@
+# Purescript dependencies:
+bower_components/
+
+# Purescript artifacts:
+output/
+.psci_modules/
+
+# Pulp cache:
+.pulp-cache/

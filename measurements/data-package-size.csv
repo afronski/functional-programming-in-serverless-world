@@ -1,0 +1,9 @@
+language,platform,package_size_in_bytes
+clojurescript_no_opt,nodejs_no_opt,17613312
+scala,jvm,12554752
+bucklescript,nodejs,5124608
+clojure,jvm,4227584
+clojurescript,nodejs,2064896
+fsharp,dotnet,1245696
+purescript,nodejs,487936
+haskell,shims,442880

@@ -1,0 +1,33 @@
+service: fp-sls-aws-nodejs-cljs
+
+provider:
+  name: aws
+  stage: dev
+  region: eu-central-1
+  profile: private
+
+  runtime: nodejs6.10
+  memorySize: 256
+  timeout: 20
+  versionFunctions: false
+
+functions:
+  echo:
+    cljs: fp.main/echo
+    events:
+      - http:
+          path: echo
+          method: post
+  sieve:
+    cljs: fp.main/sieve
+    events:
+      - http:
+          path: sieve
+          method: post
+          request:
+            parameters:
+              querystrings:
+                number: true
+
+plugins:
+  - serverless-cljs-plugin

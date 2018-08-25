@@ -1,0 +1,42 @@
+service: fp-sls-aws-nodejs-purescript
+
+provider:
+  name: aws
+  stage: dev
+  region: eu-central-1
+  profile: private
+
+  runtime: nodejs6.10
+  memorySize: 256
+  timeout: 20
+  versionFunctions: false
+
+package:
+  exclude:
+    - bower_components/**
+    - node_modules/**
+    - .psci_modules/**
+    - src/**
+    - "*.sh"
+    - "*.json"
+  include:
+    - output/**
+    - index.js
+
+functions:
+  echo:
+    handler: index.handler
+    events:
+      - http:
+          path: echo
+          method: post
+  sieve:
+    handler: index.handler
+    events:
+      - http:
+          path: sieve
+          method: post
+          request:
+            parameters:
+              querystrings:
+                number: true

@@ -1,0 +1,12 @@
+# Node modules for AWS Lambda implementation:
+**/node_modules/
+**/npm-debug.log
+
+# Serverless Framework files:
+**/.serverless/
+
+# Build artifacts:
+**/target/
+
+# VirtualEnv for Python 2.7:
+venv/
