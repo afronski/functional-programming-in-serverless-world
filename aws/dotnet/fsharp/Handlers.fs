@@ -24,11 +24,11 @@ module Handlers =
 
     while 2 * m + 1 <= n do
      if sieve.[m] then
-       let n = 2 * m + 1
-       if n <= upper then
+       let k = 2 * m + 1
+       if k <= upper then
          let mutable i = m
-         while 2 * i < n do sieve.[i] <- false; i <- i + n
-       result.Add n
+         while 2 * i < n do sieve.[i] <- false; i <- i + k
+       result.Add k
      m <- m + 1
 
     result
